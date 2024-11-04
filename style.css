@@ -1,0 +1,86 @@
+ /* Style tetap sama seperti sebelumnya */
+ body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+}
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+th, td {
+    padding: 8px;
+    text-align: center;
+    border: 1px solid #ddd;
+}
+th {
+    background-color: #f2f2f2;
+}
+button {
+    padding: 5px 10px;
+    margin: 2px;
+    border: none;
+    cursor: pointer;
+    border-radius: 4px;
+    color: white;
+}
+.edit-btn {
+    background-color: #4CAF50;
+}
+.delete-btn {
+    background-color: #f44336;
+}
+.add-btn {
+    background-color: #008CBA;
+}
+.print-btn {
+    background-color: #FFA500;
+}
+.excel-btn {
+    background-color: #217346;
+}
+.action-buttons {
+    margin: 10px 0;
+}
+.print-header {
+    display: none;
+}
+.non-printable {
+    display: block;
+}
+
+@media print {
+    .non-printable {
+        display: none;
+    }
+    .print-header {
+        display: block;
+        margin-bottom: 20px;
+    }
+    .print-header h2 {
+        text-align: center;
+        margin-bottom: 10px;
+    }
+    .print-info {
+        margin-bottom: 20px;
+    }
+    .print-info p {
+        margin: 5px 0;
+    }
+    .edit-btn, .delete-btn, .add-btn, .print-btn, .excel-btn, #searchInput {
+        display: none;
+    }
+    table {
+        page-break-inside: auto;
+    }
+    tr {
+        page-break-inside: avoid;
+        page-break-after: auto;
+    }
+    thead {
+        display: table-header-group;
+    }
+    tfoot {
+        display: table-footer-group;
+    }
+}

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inventaris Barang</title>
+    <!-- Tambahkan SheetJS -->
+    <script src="https://cdn.sheetjs.com/xlsx-0.20.1/package/dist/xlsx.full.min.js"></script>
+   <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Header untuk tampilan normal -->
+    <div class="non-printable">
+        <h1>Inventaris Barang</h1>
+    </div>
+
+    <!-- Header khusus untuk print -->
+    <div class="print-header">
+        <h2>LAPORAN INVENTARIS BARANG</h2>
+        <div class="print-info">
+            <p>Nama: <span id="printName">-</span></p>
+            <p>Tanggal: <span id="printDate">-</span></p>
+        </div>
+    </div>
+
+    <!-- Bagian pencarian dan tombol -->
+    <div class="non-printable">
+        <input type="text" id="searchInput" placeholder="Cari Barang..." onkeyup="searchTable()">
+        <div class="action-buttons">
+            <button class="print-btn" onclick="preparePrint()">Cetak</button>
+            <button class="excel-btn" onclick="exportToExcel()">Export ke Excel</button>
+        </div>
+        <br>
+        <label for="name">Nama: </label>
+        <input type="text" id="name" placeholder="Masukkan Nama">
+        <label for="date">Tanggal: </label>
+        <input type="date" id="date">
+    </div>
+
+    <table id="inventoryTable">
+        <thead>
+            <tr>
+                <th>No</th>
+                <th>Jenis-Jenis Barang</th>
+                <th>Banyak</th>
+                <th>Terjual</th>
+                <th>Harga</th>
+                <th>Jumlah</th>
+                <th class="non-printable">Aksi</th>
+            </tr>
+        </thead>
+        <tbody>
+        </tbody>
+        <tfoot>
+            <tr>
+                <td colspan="5">Total Keseluruhan</td>
+                <td id="totalAmount">Rp. 0</td>
+                <td class="non-printable"></td>
+            </tr>
+        </tfoot>
+    </table>
+
+    <div class="non-printable">
+        <br>
+        <button class="add-btn" onclick="addRow()">Tambah Barang</button>
+    </div>
+
+   <script src="script.js"></script>
+</body>
+</html>
